@@ -4,6 +4,8 @@
 
 Visual game button designer. Build a stylized button from scratch, tweak every parameter, and export the result as PNG, CSS, or Flutter code.
 
+![Button Constructor](Screen.png)
+
 The app builds into a **single HTML file** — can be opened in a browser without a server.
 
 ---
