@@ -1,147 +1,162 @@
 # Button Constructor
 
-Визуальный конструктор игровых кнопок. Позволяет собрать стилизованную кнопку с нуля, настроить каждый параметр и экспортировать результат как PNG, CSS или Flutter-код.
+**[English](#) | [Русский](README_RU.md)**
 
-Приложение собирается в **один HTML-файл** — можно открыть в браузере без сервера.
+Visual game button designer. Build a stylized button from scratch, tweak every parameter, and export the result as PNG, CSS, or Flutter code.
+
+The app builds into a **single HTML file** — can be opened in a browser without a server.
 
 ---
 
-## Быстрый старт
+## Installation
+
+You need [Node.js](https://nodejs.org/) (v18+) installed.
+
+```bash
+git clone https://github.com/E2GO/button-constructor.git
+cd button-constructor
+```
+
+Then run `start.bat` (Windows) or `start.sh` (Linux/Mac) — dependencies will install automatically and the dev server will launch.
+
+Or manually:
 
 ```bash
 npm install
-npm run dev        # dev-сервер с горячей перезагрузкой
+npm run dev
 ```
 
-Или собрать финальный файл:
+The app will open at `http://localhost:5173`.
+
+### Build
+
+To build a single HTML file you can share without a server:
 
 ```bash
-npm run build      # создаст dist/index.html — один файл, готов к раздаче
+npm run build      # creates dist/index.html
 ```
 
-На Windows/Linux можно запустить `start.bat` / `start.sh` — они просто делают `npm run dev`.
-
 ---
 
-## Интерфейс
+## Interface
 
-Экран разделен на три колонки:
+The screen is split into three columns:
 
-| Левая панель | Центр | Правая панель |
+| Left Panel | Center | Right Panel |
 |---|---|---|
-| Настройки кнопки: форма, цвета, слои, эффекты, иконка, бейджи, состояния | Превью кнопки + экспорт/сохранение | Настройки текста: цвет, обводка, тени, свечение |
+| Button settings: shape, colors, layers, effects, icon, badges, states | Button preview + export/save | Text settings: color, stroke, shadows, glow |
 
-### Верхняя панель — пресеты
+### Top Bar — Presets
 
-Цветные кнопки вверху — **встроенные пресеты** (Green, Blue, Red, Purple, Yellow, Framed). Клик загружает полный набор настроек. Можно сохранить свой пресет — он появится рядом.
+Colored buttons at the top are **built-in presets** (Green, Blue, Red, Purple, Yellow, Framed). Click to load a full set of settings. You can save your own preset — it will appear next to them.
 
 ---
 
-## Что можно настроить
+## What You Can Customize
 
-### Форма кнопки
-- Ширина, высота, скругление углов
-- Глубина (3D-эффект через нижнюю тень)
-- Режим рендера: **CSS** (стандартный div) или **SVG** (произвольные формы: squircle, звезда, щит, сердце, облако, hexagon, custom path)
+### Button Shape
+- Width, height, border radius
+- Depth (3D effect via bottom shadow)
+- Render mode: **CSS** (standard div) or **SVG** (arbitrary shapes: squircle, star, shield, heart, cloud, hexagon, custom path)
 
-### Тело кнопки
-- **Слои градиентов** — можно добавить несколько слоёв с разными blend mode (multiply, screen, overlay и т.д.)
-- Каждый слой: набор цветов, стопы градиента, угол, прозрачность
+### Button Body
+- **Gradient layers** — add multiple layers with different blend modes (multiply, screen, overlay, etc.)
+- Each layer: color stops, gradient angle, opacity
 
-### Эффекты поверхности
-- **Shine** — блик сверху (цвет, высота, прозрачность, размытие, угол)
-- **Darken** — затемнение снизу
-- **Inset Light / Dark** — внутренние тени по краям
-- **Блики (Blicks)** — отдельные точки/эллипсы света, перетаскиваются мышью
+### Surface Effects
+- **Shine** — top highlight (color, height, opacity, blur, angle)
+- **Darken** — bottom darkening
+- **Inset Light / Dark** — inner edge shadows
+- **Blicks** — individual light spots/ellipses, draggable on the preview
 
-### Текст
-- Цвет, размер, прозрачность
-- **Градиент текста** (двухцветный, с углом)
-- **Обводка** (два метода: через shadow или -webkit-text-stroke)
-- **Drop shadows** — внешние тени (неограниченное количество, угол + дистанция + размытие)
-- **Inner shadows** — внутренние тени с автоматическим перимерным бевелом
-- **Glow** — внешнее свечение
-- **Inner Glow** — внутреннее свечение
+### Text
+- Color, size, opacity
+- **Text gradient** (two-color, with angle)
+- **Stroke** (two methods: shadow-based or -webkit-text-stroke)
+- **Drop shadows** — unlimited external shadows (angle + distance + blur)
+- **Inner shadows** — with automatic perimeter bevel
+- **Glow** — outer glow
+- **Inner Glow** — inner glow
 
-### Иконка
-- Любой emoji, позиция (left/right/свободная), размер
-- Тень, обводка, свечение иконки
+### Icon
+- Any emoji, position (left/right/free), size
+- Shadow, stroke, glow
 
-### Бейджи
-- Метка поверх кнопки (например "SALE")
-- Цвет фона, рамка, поворот, позиция, тень, свечение
+### Badges
+- Label on top of the button (e.g. "SALE")
+- Background color, border, rotation, position, shadow, glow
 
-### Рамка (Frame)
-- Внешняя рамка вокруг кнопки
-- Трехцветный градиент, тень, мягкая тень
-- Внутренняя рамка с отдельными настройками
+### Frame
+- Outer frame around the button
+- Three-color gradient, shadow, soft shadow
+- Inner frame with separate settings
 
-### Состояния кнопки
+### Button States
 - **Normal** / **Hover** / **Pressed** / **Disabled**
-- Для каждого: сдвиг, масштаб, яркость, насыщенность, глубина, прозрачность
+- Each state: translate, scale, brightness, saturation, depth, opacity
 
 ---
 
-## Превью
+## Preview
 
-- Смена фона: тёмный, средний, светлый, белый, игровой градиент, шахматка (прозрачность), произвольный цвет
-- Зум от 50% до 200%, кнопка 1:1
-- Пиксельная сетка (видна при зуме 150%+)
-- **Size Variants** — моментальный просмотр кнопки в размерах Large / Medium / Small / Icon
-
----
-
-## Сохранение и экспорт
-
-### Сохранение
-- **Variant** — сохранить текущее состояние в библиотеку (внизу экрана). Варианты можно тегировать (Play, Shop, Settings, General) и искать
-- **Preset** — сохранить как пресет в верхнюю панель для быстрого переключения
-- **Style** — сохранить отдельно: Colors / Shape / Text / Full, чтобы потом применить к другой кнопке
-
-### Экспорт
-- **JSON** — копирует полное состояние в буфер обмена. Можно вставить обратно через Paste или загрузить из .json файла
-- **CSS** — генерирует CSS-класс с box-shadow, gradient, border-radius и т.д.
-- **Flutter** — генерирует Dart-код с BoxDecoration
-- **PNG** — скачивает картинку кнопки (размер: 128 / 256 / 512 / произвольный)
-
-### Обмен дизайнами
-Чтобы передать дизайн кнопки другому человеку:
-1. Нажмите **JSON** — скопируется в буфер
-2. Отправьте текст
-3. Получатель нажимает **Paste** и вставляет JSON
-
-Или через файл: экспортируйте JSON, сохраните в `.json`, получатель загружает через **File**.
+- Background switching: dark, medium, light, white, game gradient, checker (transparency), custom color
+- Zoom from 50% to 200%, 1:1 button
+- Pixel grid (visible at zoom 150%+)
+- **Size Variants** — instant preview in Large / Medium / Small / Icon sizes
 
 ---
 
-## Copy/Paste секций
+## Saving & Export
 
-Каждая группа настроек (Button, Text, Frame, States) имеет кнопки Copy/Paste. Это позволяет скопировать, например, только текстовые эффекты с одной кнопки и вставить на другую.
+### Saving
+- **Variant** — save the current state to the library (bottom of screen). Variants can be tagged (Play, Shop, Settings, General) and searched
+- **Preset** — save as a preset in the top bar for quick switching
+- **Style** — save separately: Colors / Shape / Text / Full, to apply to another button later
+
+### Export
+- **JSON** — copies the full state to clipboard. Can be pasted back via Paste or loaded from a .json file
+- **CSS** — generates a CSS class with box-shadow, gradient, border-radius, etc.
+- **Flutter** — generates Dart code with BoxDecoration
+- **PNG** — downloads a button image (size: 128 / 256 / 512 / custom)
+
+### Sharing Designs
+To send a button design to someone:
+1. Click **JSON** — copies to clipboard
+2. Send the text
+3. Recipient clicks **Paste** and pastes the JSON
+
+Or via file: export JSON, save as `.json`, recipient loads it via **File**.
 
 ---
 
-## Горячие клавиши
+## Section Copy/Paste
 
-| Клавиша | Действие |
+Each settings group (Button, Text, Frame, States) has Copy/Paste buttons. This lets you copy, for example, only text effects from one button and paste them onto another.
+
+---
+
+## Keyboard Shortcuts
+
+| Key | Action |
 |---|---|
-| `Ctrl+Z` | Отмена |
-| `Ctrl+Shift+Z` / `Ctrl+Y` | Повтор |
+| `Ctrl+Z` | Undo |
+| `Ctrl+Shift+Z` / `Ctrl+Y` | Redo |
 
 ---
 
-## Прямое редактирование (Direct Edit)
+## Direct Edit
 
-Блики, бейджи, иконку и offset рамки можно перетаскивать прямо на превью. В режиме Direct Edit:
-- Перетаскивание — перемещение
-- Оранжевые хэндлы — поворот
-- Синие хэндлы — масштаб
+Blicks, badges, icon, and frame offset can be dragged directly on the preview. In Direct Edit mode:
+- Drag — move
+- Orange handles — rotate
+- Blue handles — scale
 
 ---
 
-## Технологии
+## Tech Stack
 
 - React 19 + Vite 8
-- vite-plugin-singlefile (сборка в один HTML)
-- html-to-image (экспорт PNG)
-- Без TypeScript, без state-менеджера — всё на useState + custom useHistory hook (undo/redo, до 50 шагов)
-- Все пользовательские данные хранятся в localStorage браузера
+- vite-plugin-singlefile (single HTML build)
+- html-to-image (PNG export)
+- No TypeScript, no state manager — plain useState + custom useHistory hook (undo/redo, up to 50 steps)
+- All user data is stored in browser localStorage
